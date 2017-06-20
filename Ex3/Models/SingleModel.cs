@@ -10,8 +10,8 @@ namespace Ex3.Models
 {
     public class SingleModel
     {
-        private DFSMazeGenerator dFSMazeGenerator;
-        private static Dictionary<string, Maze> mazes;
+        private DFSMazeGenerator dFSMazeGenerator = new DFSMazeGenerator();
+        private static Dictionary<string, Maze> mazes = new Dictionary<string, Maze>();
 
 
         /// <summary>
