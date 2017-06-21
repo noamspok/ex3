@@ -19,7 +19,7 @@ namespace Ex3.Controllers
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Single/5
+        // GET: api/Single/name/rows/cols
         public JObject Get(string name, int rows, int cols)
         {
             Maze maze = singleModel.GenerateMaze(name, rows, cols);
