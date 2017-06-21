@@ -60,6 +60,7 @@
 				if (mazeDat[playerRowLoc][playerColLoc - 1] == 0) {
 				    move(playerRowLoc, playerColLoc - 1);
 				}
+
 				break;
 			case 38:
 				if (mazeDat[playerRowLoc -1][playerColLoc ] == 0) {
