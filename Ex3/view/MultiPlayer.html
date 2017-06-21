@@ -14,7 +14,7 @@
 
     
 </head>
-<body>
+<body style="background-color:whitesmoke">
     <div id="nav-placeholder">
 
     </div>
@@ -24,5 +24,73 @@
             $("#nav-placeholder").load("navigationbar.html");
         });
     </script>
+    <div class="container-fluid">
+        <h2>MultiPlayer Game</h2>
+    
+    
+        <div class="col-sm-3 form-horizontal">
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><br />Games:</label>
+                <div class="dropdown">
+                    <br />
+                    
+                    <button class=" btn btn-default dropdown-toggle up" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        games
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="games"></ul>
+
+                </div>
+               
+                <br />
+                <button class="btn btn-default center-block col-sm-6 " style="margin-left:40px">Join Game</button>
+
+            </div>
+                <div>
+                    <br />
+                    <label for="mazeName" class="col-sm-3 control-label">Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="mazeName" />
+                        <br />
+                    </div>
+                    <label for="cols" class="col-sm-3 control-label">columns</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="cols" />
+                        <br />
+                    </div>
+                    <label for="rows" class="col-sm-3 control-label">rows</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="rows" />
+                        <br />
+                    </div>
+                </div>
+                <div>
+                    <br />
+                    <button class="btn btn-default" style="margin-left:40px">Start A New Game</button>
+
+
+                    
+                    
+                    
+            </div>
+        </div>
+        <div class="col-sm-4 text-center">
+            <canvas id="mazeCanvas" width="420" height="420" style="border:2px black
+    solid"></canvas>
+
+
+
+        
+    </div>
+        <div class="col-sm-4 text-center">
+            <canvas id="rivalsMazeCanvas" width="420" height="420" style="border:2px black
+    solid"></canvas>
+
+
+
+        
+    </div>
+        </div>
 </body>
 </html>

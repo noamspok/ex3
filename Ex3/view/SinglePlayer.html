@@ -26,7 +26,8 @@
         });
     </script>
     <div class="container-fluid">
-        <h2>Single Player Game</h2><hr />
+        <h2>Single Player Game</h2>
+        <br />
         <div class="col-sm-4 form-horizontal">
             <div class="form-group">
                 <label for="mazeName" class="col-sm-2 control-label">Name</label>
@@ -46,14 +47,14 @@
                 </div>
             </div>
             <div>
-                <button class="btn btn-default">Start A New Game</button>
+                <button class="btn btn-default center-block">Start A New Game</button>
 
             </div>
             <label for="cols" class="col-sm-2 control-label"><br />Search Algo</label>
-            <div class="dropdown">
+            <div class="dropdown ">
+                
                 <br />
-                <br />
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <button class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     Algo
                     <span class="caret"></span>
                 </button>
@@ -65,46 +66,15 @@
             <div>
                 <br />
                 <br />
-                <button class="btn btn-default">Solve Game</button>
+                <button class="btn btn-default center-block">Solve Game</button>
 
             </div>
         </div>
 
         <div class="col-sm-8 text-center">
-            <canvas id="mazeCanvas" width="500" height="500" style="border:2px black
-    solid"></canvas>
+            <canvas id="mazeCanvas" width="500" height="500" style="border:2px black solid"></canvas>
 
-            <script>
-                function drawMaze(maze) {
-                    var myCanvas = document.getElementById("mazeCanvas");
-                    var context = mazeCanvas.getContext("2d");
-                    var rows = maze.length; var cols = maze[0].length;
-                    var cellWidth = mazeCanvas.width / cols;
-                    var cellHeight = mazeCanvas.height / rows;
-                    for (var i = 0; i < rows; i++) {
-                        for (var j = 0; j < cols; j++) {
-                            if (maze[i][j] == 1) {
-                                context.fillRect(cellWidth * j, cellHeight * i,
-                                    cellWidth, cellHeight);
-                            }
-                        }
-                    }
-                }
-
-                maze = [[0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0],
-                [0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0],
-                [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1],
-                [0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0],
-                [0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0],
-                [0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0],
-                [1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0],
-                [0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0],
-                [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1],
-                [0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0],
-                [0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0]];
-                drawMaze(maze);
-
-            </script>
+           
 
         </div>
     </div>
