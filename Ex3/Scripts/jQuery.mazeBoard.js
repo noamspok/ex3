@@ -1,4 +1,7 @@
-﻿(function ($) {
+﻿/// <reference path="C:\Users\noamspok\Source\Repos\ex3\Ex3\view/winModal.html" />
+/// <reference path="C:\Users\noamspok\Source\Repos\ex3\Ex3\view/winModal.html" />
+/// <reference path="C:\Users\noamspok\Source\Repos\ex3\Ex3\view/winModal.html" />
+(function ($) {
     var canvas;
     var context;
     var rows;
@@ -80,7 +83,10 @@
                 break;
         }
         if (playerRowLoc == xitRow && playerColLoc == xitCol) {
+            window.open("../view/winModal.html");
+           
 
+            
         }
 
     }
