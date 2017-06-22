@@ -1,6 +1,4 @@
-﻿/// <reference path="C:\Users\noamspok\Source\Repos\ex3\Ex3\view/winModal.html" />
-/// <reference path="C:\Users\noamspok\Source\Repos\ex3\Ex3\view/winModal.html" />
-/// <reference path="C:\Users\noamspok\Source\Repos\ex3\Ex3\view/winModal.html" />
+﻿
 (function ($) {
     var canvas;
     var context;
@@ -20,7 +18,7 @@
     var playerRowLoc;
     var playerColLoc;
 
-    $.fn.mazeBoard = function (mazeData, startRow, startCol, exitRow, exitCol) {
+    $.fn.mazeBoard = function (mazeData, startRow, startCol, exitRow, exitCol,enabled) {
         canvas = $(this)[0];
         context = canvas.getContext("2d");
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -48,7 +46,9 @@
         }
         context.drawImage(playerImg, playerColLoc * cellWidth, playerRowLoc * cellHeight, cellWidth, cellHeight);
         context.drawImage(exitImg, xitCol * cellWidth, xitRow * cellHeight, cellWidth, cellHeight);
-        document.addEventListener("keydown", move, false);
+        if (enabled) {
+            document.addEventListener("keydown", move, false);
+        }
     }
     function movePlayer(newRowLoc, newColLoc) {
         context.fillStyle = "#ffffff";
@@ -96,21 +96,21 @@
         var x = setInterval(function () {
 
             switch (solution[i]) {
-                case "0":
-                    move(playerRowLoc, playerColLoc - 1);
+                case '0':
+                    movePlayer(playerRowLoc, playerColLoc - 1);
                     break;
                 case '1':
-                    move(playerRowLoc, playerColLoc + 1);
+                    movePlayer(playerRowLoc, playerColLoc + 1);
                     break;
                 case '2':
-                    move(playerRowLoc - 1, playerColLoc);
+                    movePlayer(playerRowLoc - 1, playerColLoc);
                     break;
                 case '3':
-                    move(playerRowLoc + 1, playerColLoc);
+                    movePlayer(playerRowLoc + 1, playerColLoc);
                     break;
             }
             i++
-        }, 20);
+        }, 200);
     }
 
 })(jQuery); 
