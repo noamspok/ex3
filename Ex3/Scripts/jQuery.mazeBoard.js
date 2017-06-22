@@ -20,6 +20,7 @@
     $.fn.mazeBoard = function (mazeData, startRow, startCol, exitRow, exitCol) {
         canvas = $(this)[0];
         context = canvas.getContext("2d");
+        context.clearRect(0, 0, canvas.width, canvas.height);
         rows = mazeData.length;
         cols = mazeData[0].length;
         cellWidth = mazeCanvas.width / cols;
@@ -33,7 +34,6 @@
         exitImg = exitImg;
         playerRowLoc = strRow;
         playerColLoc = strCol;
-
         for (var i = 0; i < rows; i++) {
             for (var j = 0; j < cols; j++) {
                 if (mazeData[i][j] == 1) {
@@ -42,8 +42,8 @@
                 }
             }
         }
-        context.drawImage(playerImg, playerRowLoc, playerColLoc, cellWidth, cellHeight);
-        context.drawImage(exitImg, xitRow, xitCol, cellWidth, cellHeight);
+        context.drawImage(playerImg, playerColLoc * cellWidth, playerRowLoc * cellHeight, cellWidth, cellHeight);
+        context.drawImage(exitImg, xitCol * cellWidth, xitRow * cellHeight, cellWidth, cellHeight);
         document.addEventListener("onkeydown", move, false);
     }
     function movePlayer(newRowLoc, newColLoc) {

@@ -17,7 +17,8 @@ $("#StrtBtn").click(function () {
         var startCol = maze.Start.Col;
         var exitRow = maze.End.Row;
         var exitCol = maze.End.Col;
-
+        alert(startRow + "," + startCol);
+        alert(exitRow + "," + exitCol);
         var mazeData = new Array(rows);
         for (var i = 0; i < rows; i++) {
             mazeData[i] = new Array(cols);
@@ -30,7 +31,7 @@ $("#StrtBtn").click(function () {
                 mazeData[i][j] = fromStr[(i * rows) + j];
             }
         }
-
+        alert(mazeData);
         var mazeBoard = $("#mazeCanvas").mazeBoard(mazeData, startRow, startCol, exitRow, exitCol);
     });
 });
