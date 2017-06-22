@@ -20,10 +20,17 @@ namespace Ex3.Controllers
         }
 
         // GET: api/Single/name/rows/cols
-        public JObject Get(string name, int rows, int cols)
+        public JObject GetMaze(string name, int rows, int cols)
         {
             Maze maze = singleModel.GenerateMaze(name, rows, cols);
             JObject obj = JObject.Parse(maze.ToJSON());
+            return obj;
+        }
+
+        // GET: api/Single/name/rows/cols
+        public JObject GetSol(string name, int algo)
+        {
+            JObject obj = JObject.Parse(singleModel.Solve(name, algo));
             return obj;
         }
 

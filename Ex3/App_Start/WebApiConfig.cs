@@ -15,8 +15,14 @@ namespace Ex3
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "SingleApi",
+                name: "GenerateApi",
                 routeTemplate: "api/{controller}/{name}/{rows}/{cols}",
+                defaults: new { controller = "Single" }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "SolveApi",
+                routeTemplate: "api/{controller}/{name}/{algo}",
                 defaults: new { controller = "Single" }
             );
 
