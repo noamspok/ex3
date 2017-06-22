@@ -28,7 +28,7 @@ $("#StrtBtn").click(function () {
 
         for (var i = 0; i < rows; i++) {
             for (var j = 0; j < cols; j++) {
-                mazeData[i][j] = fromStr[(i * rows) + j];
+                mazeData[i][j] = fromStr[(i * cols) + j];
             }
         }
         alert(mazeData);

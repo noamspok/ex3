@@ -34,6 +34,7 @@
         exitImg = exitImg;
         playerRowLoc = strRow;
         playerColLoc = strCol;
+        context.fillStyle = "#000000";
         for (var i = 0; i < rows; i++) {
             for (var j = 0; j < cols; j++) {
                 if (mazeData[i][j] == 1) {
@@ -44,35 +45,37 @@
         }
         context.drawImage(playerImg, playerColLoc * cellWidth, playerRowLoc * cellHeight, cellWidth, cellHeight);
         context.drawImage(exitImg, xitCol * cellWidth, xitRow * cellHeight, cellWidth, cellHeight);
-        document.addEventListener("onkeydown", move, false);
+        document.addEventListener("keydown", move, false);
     }
     function movePlayer(newRowLoc, newColLoc) {
-        context.fillStyle = "#FF0000";
-        context.fillRect(playerRowLoc, playerColLoc, cellWidth, cellHeight);
-        context.drawImage(playerImg, newRowLoc, newColLoc, cellWidth, cellHeight);
+        context.fillStyle = "#ffffff";
+        context.fillRect(playerColLoc * cellWidth, playerRowLoc * cellHeight, cellWidth, cellHeight);
+        context.drawImage(playerImg, newColLoc * cellWidth, newRowLoc * cellHeight, cellWidth, cellHeight);
+        playerColLoc = newColLoc;
+        playerRowLoc = newRowLoc;
     }
     function move(event) {
 
         switch (event.keyCode) {
             case 37:
                 if (mazeDat[playerRowLoc][playerColLoc - 1] == 0) {
-                    move(playerRowLoc, playerColLoc - 1);
+                    movePlayer(playerRowLoc, playerColLoc - 1);
                 }
 
                 break;
             case 38:
                 if (mazeDat[playerRowLoc - 1][playerColLoc] == 0) {
-                    move(playerRowLoc - 1, playerColLoc);
+                    movePlayer(playerRowLoc - 1, playerColLoc);
                 }
                 break;
             case 39:
                 if (mazeDat[playerRowLoc][playerColLoc + 1] == 0) {
-                    move(playerRowLoc, playerColLoc + 1);
+                    movePlayer(playerRowLoc, playerColLoc + 1);
                 }
                 break;
             case 40:
                 if (mazeDat[playerRowLoc + 1][playerColLoc] == 0) {
-                    move(playerRowLoc + 1, playerColLoc);
+                    movePlayer(playerRowLoc + 1, playerColLoc);
                 }
                 break;
         }
