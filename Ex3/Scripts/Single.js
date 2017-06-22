@@ -1,10 +1,4 @@
-﻿/*$(document).ready(function () {
-
-var script = document.createElement('script');
-script.src = './Scripts/jquery.mazeBoard.js';
-document.getElementsByTagName('head')[0].appendChild(script);*/
-
-$("#StrtBtn").click(function () {
+﻿$("#StrtBtn").click(function () {
     var apiUrl = "../api/Single/" + $("#mazeName").val() + "/" + $("#rows").val() + "/" + $("#cols").val();
     /*$.getJSON(apiUrl)*/$.ajax({
         method: "GET",
@@ -17,8 +11,7 @@ $("#StrtBtn").click(function () {
         var startCol = maze.Start.Col;
         var exitRow = maze.End.Row;
         var exitCol = maze.End.Col;
-        alert(startRow + "," + startCol);
-        alert(exitRow + "," + exitCol);
+
         var mazeData = new Array(rows);
         for (var i = 0; i < rows; i++) {
             mazeData[i] = new Array(cols);
@@ -31,8 +24,16 @@ $("#StrtBtn").click(function () {
                 mazeData[i][j] = fromStr[(i * cols) + j];
             }
         }
-        alert(mazeData);
+
         var mazeBoard = $("#mazeCanvas").mazeBoard(mazeData, startRow, startCol, exitRow, exitCol);
+    });
+});
+
+$("#SlvBtn").click(function () {
+    var apiUrl = "../api/Single/" + $("#mazeName").val() + "/" + $('#dd option:selected').text();
+    $.getJSON(apiUrl).done(function (solution) {
+        var fromSolution = solution.Solution.split("");
+        $("#mazeCanvas").solveMaze(fromSolution);
     });
 });
 
