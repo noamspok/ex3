@@ -12,7 +12,7 @@ namespace Ex3.Models
     {
         private DFSMazeGenerator dFSMazeGenerator = new DFSMazeGenerator();
         private static Dictionary<string, Maze> mazes = new Dictionary<string, Maze>();
-
+        private static Dictionary<string, Maze> games = new Dictionary<string, Maze>();
 
         /// <summary>
         /// Generates the maze.
@@ -25,7 +25,7 @@ namespace Ex3.Models
         {
             Maze maze = this.dFSMazeGenerator.Generate(rows, cols);
             maze.Name = name;
-           mazes.Add(name, maze);
+            mazes.Add(name, maze);
             return maze;
         }
 
@@ -37,10 +37,6 @@ namespace Ex3.Models
         /// <returns>the path</returns>
         public string Solve(string name, int algorithm)
         {
-            //if (this.solutions.ContainsKey(name))
-            //{
-            //    return this.solutions[name];
-            //}
             Solution<Position> solution = null;
             Adapter adapted = new Adapter(mazes[name]);
             ISearcher<Position> searcher = null;
@@ -56,9 +52,24 @@ namespace Ex3.Models
             solution = searcher.Search(adapted);
             SolveSolution solveSolution = new SolveSolution(name, solution, searcher.GetNumberOfNodesEvaluated());
             string toJSON = solveSolution.ToJSON();
-            //solutions.Add(name, toJSON);
             return toJSON;
         }
 
+
+        /// <summary>
+        /// Generates the game.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="rows">The amount of rows.</param>
+        /// <param name="cols">The amount of columns.</param>
+        /// <param name="client">The client for whom the game is for.</param>
+        /// <returns>Maze.</returns>
+        public Maze GenerateGame(string name, int rows, int cols)
+        {
+            Maze maze = this.dFSMazeGenerator.Generate(rows, cols);
+            maze.Name = name;
+            games.Add(name, maze);
+            return maze;
+        }
     }
 }
