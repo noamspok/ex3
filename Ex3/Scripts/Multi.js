@@ -28,7 +28,7 @@
                 mazeData[i][j] = fromStr[(i * cols) + j];
             }
         }
-
+        //need to change to operate only in join button
         $("#mazeCanvas").mazeBoard(mazeData, startRow, startCol, exitRow, exitCol, true);
         $("#rivalsMazeCanvas").mazeBoard(mazeData, startRow, startCol, exitRow, exitCol, false);
 
