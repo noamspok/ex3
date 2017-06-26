@@ -225,6 +225,7 @@
     <Content Include="Scripts\LogIn.js" />
     <Content Include="Scripts\Register.js" />
     <Content Include="Scripts\Multi.js" />
+    <Content Include="Scripts\Multi.js" />
     <Content Include="Scripts\Single.js" />
     <Content Include="Scripts\UserRankings.js" />
     <Content Include="view\LogIn.html" />
@@ -259,6 +260,8 @@
   <ItemGroup>
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\MazeInfo.cs" />
+    <Compile Include="Controllers\MultiController.cs" />
     <Compile Include="Controllers\SingleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
